@@ -1,0 +1,213 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #263b80;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #172554;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #facc15;
+}
+
+/* Home Section */
+.hero {
+    background: linear-gradient(120deg, #263b80, #657de5);
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Main Container */
+.container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container h2 {
+    color: #263b80;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Search Box */
+input, select {
+    padding: 12px;
+    margin: 15px 8px;
+    width: 230px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #263b80;
+}
+
+/* Events Section */
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Event Cards */
+.card {
+    background-color: white;
+    width: 290px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: #263b80;
+    padding: 10px 15px;
+    font-size: 20px;
+}
+
+.card p {
+    padding: 5px 15px;
+    color: #555;
+}
+
+/* Category Label */
+.category {
+    background-color: #e0e7ff;
+    color: #263b80;
+    padding: 7px 14px;
+    display: inline-block;
+    margin: 15px 15px 5px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Event Date */
+.date {
+    color: #e65c36 !important;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    background-color: #263b80;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e65c36;
+}
+
+/* About and Contact */
+#about, #contact {
+    background-color: white;
+    margin-top: 20px;
+    padding: 40px 20px;
+}
+
+#about p, #contact p {
+    max-width: 700px;
+    margin: 10px auto;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 600px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .container {
+        padding: 25px 10px;
+    }
+
+    input, select {
+        width: 90%;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

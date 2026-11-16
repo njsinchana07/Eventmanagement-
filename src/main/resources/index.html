@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Event Management</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6fb;
+        }
+
+        header {
+            background-color: #263b80;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #172554;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #263b80, #657de5);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        input, select {
+            padding: 12px;
+            margin: 10px;
+            width: 220px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .events {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 280px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .card h3 {
+            color: #263b80;
+            padding: 0 15px;
+        }
+
+        .card p {
+            padding: 0 15px;
+            color: #555;
+        }
+
+        .category {
+            background-color: #e0e7ff;
+            color: #263b80;
+            padding: 8px 15px;
+            display: inline-block;
+            margin: 15px;
+            border-radius: 5px;
+        }
+
+        .date {
+            color: #e65c36;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #263b80;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e65c36;
+        }
+
+        footer {
+            background-color: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 600px) {
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h1>College Event Management</h1>
+    <p>New Horizon College of Engineering</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Home Section -->
+<section class="hero" id="home">
+    <h1>Discover Upcoming Events!</h1>
+    <p>Explore workshops, seminars and exciting college events.</p>
+    <a href="#events">
+        <button>Explore Events</button>
+    </a>
+</section>
+
+<!-- Events Section -->
+<section class="container" id="events">
+
+    <h2>Upcoming College Events</h2>
+    <p>Find and register for your favourite events.</p>
+
+    <!-- Search -->
+    <input type="text" id="search"
+           placeholder="Search events..." onkeyup="displayEvents()">
+
+    <!-- Category Filter -->
+    <select id="category" onchange="displayEvents()">
+        <option value="All">All Events</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Seminar">Seminar</option>
+        <option value="Technical">Technical</option>
+        <option value="Cultural">Cultural</option>
+    </select>
+
+    <!-- Event Cards -->
+    <div class="events" id="eventList"></div>
+
+</section>
+
+<!-- About Section -->
+<section class="container" id="about">
+    <h2>About Us</h2>
+    <p>
+        Our College Event Management Website helps students
+        discover upcoming college events, workshops and seminars.
+        Students can explore event details and register for events.
+    </p>
+</section>
+
+<!-- Contact Section -->
+<section class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: events@college.edu</p>
+    <p>Phone: 9876543210</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 College Event Management System</p>
+    <p>Designed using HTML, CSS and JavaScript</p>
+</footer>
+
+<script>
+
+    // Event Details
+    let events = [
+
+        {
+            name: "Web Development Workshop",
+            category: "Workshop",
+            date: "2026-12-05",
+            time: "10:00 AM",
+            venue: "Computer Lab",
+            description: "Learn HTML, CSS and JavaScript."
+        },
+
+        {
+            name: "AI and Machine Learning Seminar",
+            category: "Seminar",
+            date: "2026-12-10",
+            time: "11:00 AM",
+            venue: "Seminar Hall",
+            description: "Explore Artificial Intelligence and ML."
+        },
+
+        {
+            name: "Coding Competition",
+            category: "Technical",
+            date: "2026-12-15",
+            time: "09:00 AM",
+            venue: "Auditorium",
+            description: "Showcase your programming skills."
+        },
+
+        {
+            name: "Annual Cultural Fest",
+            category: "Cultural",
+            date: "2026-12-20",
+            time: "04:00 PM",
+            venue: "College Ground",
+            description: "Enjoy music, dance and entertainment."
+        },
+
+        {
+            name: "Cyber Security Workshop",
+            category: "Workshop",
+            date: "2026-12-25",
+            time: "10:30 AM",
+            venue: "Computer Lab",
+            description: "Learn about online security and cyber threats."
+        }
+
+    ];
+
+    // Display Events
+    function displayEvents() {
+
+        let search = document.getElementById("search")
+            .value.toLowerCase();
+
+        let category = document.getElementById("category").value;
+
+        let eventList = document.getElementById("eventList");
+
+        eventList.innerHTML = "";
+
+        let filteredEvents = events.filter(function(event) {
+
+            let matchName = event.name.toLowerCase().includes(search);
+
+            let matchCategory =
+                category === "All" || event.category === category;
+
+            return matchName && matchCategory;
+
+        });
+
+        if (filteredEvents.length === 0) {
+            eventList.innerHTML = "<p>No events found!</p>";
+            return;
+        }
+
+        filteredEvents.forEach(function(event) {
+
+            let card = document.createElement("div");
+
+            card.className = "card";
+
+            card.innerHTML = `
+                    <span class="category">${event.category}</span>
+
+                    <h3>${event.name}</h3>
+
+                    <p class="date">Date: ${event.date}</p>
+
+                    <p>Time: ${event.time}</p>
+
+                    <p>Venue: ${event.venue}</p>
+
+                    <p>${event.description}</p>
+
+                    <button onclick="registerEvent('${event.name}')">
+                        Register Now
+                    </button>
+                `;
+
+            eventList.appendChild(card);
+
+        });
+
+    }
+
+    // Registration Function
+    function registerEvent(name) {
+
+        alert("You have selected " + name +
+            ". Registration details will be provided by the college.");
+
+    }
+
+    // Load Events When Page Opens
+    displayEvents();
+
+</script>
+
+</body>
+</html>
